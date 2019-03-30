@@ -1,4 +1,5 @@
 // Part Contact
+document.querySelector('#ContactResult').style.visibility = 'hidden';
 class Contact {
     constructor(subject, message, name, gender, phone, email) {
         this.subject = subject;
@@ -99,9 +100,10 @@ document.querySelector('#contact-form').addEventListener('submit', (e) => {
 
 
     if (subject === '' || message === '' || name === '' || gender === '' || phone === '' || email === '') {
+        document.querySelector('#ContactResult').style.visibility='hidden';
         UI.showAlert('Please enter all fields');
     } else {
-
+        document.querySelector('#ContactResult').style.visibility='';
         const contact = new Contact(subject, message, name, gender, phone, email);
         UI.addContactToList(contact);
         Store.addContact(contact);
